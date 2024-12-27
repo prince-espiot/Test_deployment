@@ -1,0 +1,6 @@
+resources:
+  - Deploymeny.yaml
+  - Service.yaml
+  - ingress.yaml
+  - redis.yaml
+  - namespace.yaml

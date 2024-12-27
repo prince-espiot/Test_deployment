@@ -3,7 +3,7 @@ kind: Kustomization
 namespace: 7-example
 bases: 
   - ../../../alb-https-test
-  - namespace.yaml
+  
 
 images:
   - name: aputra/myapp-195
