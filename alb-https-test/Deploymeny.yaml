@@ -3,20 +3,20 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: myapp
-  io.kompose.service: myapp
+  namespace: 7-example
 spec:
   replicas: 1
   selector:
     matchLabels:
-      io.kompose.service: myapp
+      app: myapp
   template:
     metadata:
       labels:
-        io.kompose.service: myapp
+        app: myapp
     spec:
       containers:
         - name: myapp
-          image: myapp
+          image: aputra/myapp-195:v2
           ports:
             - name: http
               containerPort: 8080
