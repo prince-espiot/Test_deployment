@@ -1,5 +1,5 @@
 resources:
-  - Deploymeny.yaml
+  - Deployment.yaml
   - Service.yaml
   - ingress.yaml
   - namespace.yaml
