@@ -1,11 +1,11 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+metadata:
+  labels:
+    app.kubernetes.io/instance: myweb
 namespace: myweb
-bases: 
+resources:
   - ../../../alb-https-test
-  
-
 images:
   - name: okumop/myweb
     newTag: v0.0.1
-
