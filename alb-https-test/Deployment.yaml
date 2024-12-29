@@ -32,8 +32,4 @@ spec:
             limits:
               memory: 128Mi
               cpu: 100m
-          startupProbe:
-            tcpSocket:
-              port: 8080
-            initialDelaySeconds: 10
-            periodSeconds: 10
+          
