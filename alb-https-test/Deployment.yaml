@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: myapp
-          image: okumop/myweb:v0.0.3
+          image: okumop/myweb:v0.0.5
           ports:
             - name: http
               containerPort: 8080
