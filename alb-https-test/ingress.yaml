@@ -17,7 +17,7 @@ metadata:
 spec:
   ingressClassName: alb
   rules:
-    - host: www.princeokumo.com
+    - host: princeokumo.com
       http:
         paths:
           - path: /
