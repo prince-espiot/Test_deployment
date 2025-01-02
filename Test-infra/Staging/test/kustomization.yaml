@@ -8,4 +8,4 @@ resources:
   - ../../../alb-https-test
 images:
   - name: okumop/myweb
-    newTag: v0.0.6
+    newTag: v0.0.7
