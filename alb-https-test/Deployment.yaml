@@ -19,6 +19,7 @@ spec:
       labels:
         app: myapp
     spec:
+      serviceAccountName: myweb
       containers:
         - name: myapp
           image: okumop/myweb:v0.0.7
@@ -32,4 +33,18 @@ spec:
             limits:
               memory: 128Mi
               cpu: 100m
+          livelinessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            timeoutSeconds: 5
+          readinessProbe:
+            httpGet: 
+              path: /
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            timeoutSeconds: 5
           
