@@ -4,4 +4,4 @@ resources:
   - ingress.yaml
   - namespace.yaml
   - Serviceaccount.yaml
-  
+  - secret.yaml
