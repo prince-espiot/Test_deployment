@@ -8,4 +8,4 @@ resources:
   - ../../../alb-https-test
 images:
   - name: okumop/myweb
-    newTag: v0.0.15  # Update the image tag
+    newTag: v0.0.18  # Update the image tag
