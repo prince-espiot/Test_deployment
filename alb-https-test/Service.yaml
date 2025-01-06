@@ -9,6 +9,9 @@ metadata:
   annotations:
     service.beta.kubernetes.io/aws-load-balancer-ssl-cert: arn:aws:acm:eu-north-1:481665127750:certificate/e991c074-9361-4bcf-bf60-bba3ce0f3f19
     service.beta.kubernetes.io/aws-load-balancer-type: external
+    service.beta.kubernetes.io/lister-ports: '[{"HTTP": 8080}, {"HTTPS":443}]'
+    service.beta.kubernetes.io/redirection-action: Forward
+    service.beta.kubernetes.io/aws-load-balancer-ssl-ports: "443"
     service.beta.kubernetes.io/aws-load-balancer-nlb-target-type: ip
     service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing
     # service.beta.kubernetes.io/aws-load-balancer-proxy-protocol: "*"
