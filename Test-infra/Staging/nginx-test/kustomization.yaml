@@ -5,7 +5,7 @@ metadata:
     app.kubernetes.io/instance: myweb-2
 namespace: myweb-2
 resources:
-  - ../../../niginx-deployment-test
+  - ../../../nginx-deployment-test
 images:
   - name: okumop/myweb
     newTag: v0.0.18  # Update the image tag
