@@ -4,6 +4,7 @@ metadata:
   name: myapp-2
   namespace: myweb-2
   annotations:
+    kubernetes.io/ingress.class: external-nginx
     cert-manager.io/cluster-issuer: letsencrypt-test
 spec:
   ingressClassName: external-nginx
@@ -18,8 +19,7 @@ spec:
                 name: myapp-2
                 port:
                   number: 8080
-tls:
-  - hosts:
-      - nginx.princeokumo.com
-    secretName: myapp-2-tls 
-
+  tls:
+    - hosts:
+        - nginx.princeokumo.com
+      secretName: myapp-2-tls
