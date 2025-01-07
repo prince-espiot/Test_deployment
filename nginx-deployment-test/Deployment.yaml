@@ -19,7 +19,6 @@ spec:
       labels:
         app: myapp-2
     spec:
-      serviceAccountName: myweb-2
       containers:
         - name: myapp-2
           image: okumop/myweb:v0.0.12
