@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: myapp
+  name: myapp-2
   namespace: myweb-2
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-test
@@ -15,10 +15,11 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: myapp
+                name: myapp-2
                 port:
                   number: 8080
 tls:
   - hosts:
       - www.princeokumo.com
-    secretName: myapp-tls 
+    secretName: myapp-2-tls 
+
