@@ -8,4 +8,4 @@ resources:
   - ../../../nginx-deployment-test
 images:
   - name: okumop/myweb
-    newTag: v0.0.18  # Update the image tag
+    newTag: v0.0.19  # Update the image tag
