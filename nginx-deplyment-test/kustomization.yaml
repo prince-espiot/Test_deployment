@@ -3,5 +3,4 @@ resources:
   - Service.yaml
   - ingress.yaml
   - namespace.yaml
-  - secret.yaml
   - cluster-issuer.yaml
