@@ -9,7 +9,7 @@ metadata:
 spec:
   ingressClassName: external-nginx
   rules:
-    - host: nginx.princeokumo.com
+    - host: www.princeokumo.com
       http:
         paths:
           - path: /
@@ -21,5 +21,5 @@ spec:
                   number: 8080
   tls:
     - hosts:
-        - nginx.princeokumo.com
+        - www.princeokumo.com
       secretName: myapp-2-tls
