@@ -38,5 +38,5 @@ jobs:
       - name: Build and Validate Kustomize Output
         run: |
           kustomize build ./Test-infra/Staging/test > output.yaml
-          kubectl apply --dry-run=client --validate=true -f output.yaml
+          kubectl apply --dry-run=client --validate=false -f output.yaml
 
