@@ -40,13 +40,21 @@ jobs:
           kustomize build ./Test-infra/Staging/test > output.yaml
           kubectl apply --dry-run=client --validate=false -f output.yaml
 
-      - name: Push to Deploy Branch
-        if: ${{ success() }}
-        env:
-          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+      
+      - name: Configure Git
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git checkout Deploy
+      
+      - name: Create and push Deploy branch
+        env:
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
+        run: |
+          git fetch origin
+          git checkout -b Deploy || git checkout Deploy
           git push https://x-access-token:${PAT_TOKEN}@github.com/prince-espiot/Test_deployment.git Deploy
+        
+
 
