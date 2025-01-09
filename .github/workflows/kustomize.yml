@@ -14,6 +14,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Set up Kind
+        uses: helm/kind-action@v1.5.0
+
       # Step 2: Cache Kustomize Binary
       - name: Cache Kustomize Binary
         uses: actions/cache@v3
@@ -34,6 +37,6 @@ jobs:
       # Step 4: Build and Validate Kustomize Output
       - name: Build and Validate Kustomize Output
         run: |
-          kustomize build Test-infra/Staging/test > output.yaml
-          kubectl apply --dry-run=client --validate=false -f output.yaml
+          kustomize build ./Test-infra/Staging/test > output.yaml
+          kubectl apply --dry-run=client --validate=true -f output.yaml
 
