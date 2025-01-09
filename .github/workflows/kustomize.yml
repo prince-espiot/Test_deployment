@@ -40,14 +40,17 @@ jobs:
           kustomize build ./Test-infra/Staging/test > output.yaml
           kubectl apply --dry-run=client --validate=false -f output.yaml
 
+      # Step 5: Checkout the repository
       - name: Checkout the repository
         uses: actions/checkout@v3
         
+      # Step 6: Configure Git
       - name: Configure Git
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
       
+      # Step 7: Ensure Deploy branch exists and push
       - name: Ensure Deploy branh exists and push
         run: |
           git fetch origin
