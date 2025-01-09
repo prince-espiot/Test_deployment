@@ -54,6 +54,7 @@ jobs:
         run: |
           git fetch origin
           git checkout -b Deploy || git checkout Deploy
+          git pull origin Deploy --rebase
           git push https://x-access-token:${PAT_TOKEN}@github.com/prince-espiot/Test_deployment.git Deploy
         
 
