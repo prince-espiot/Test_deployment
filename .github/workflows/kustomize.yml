@@ -1,0 +1,38 @@
+name: Kustomize Build CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  kustomize-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Cache Kustomize Binary
+      - name: Cache Kustomize Binary
+        uses: actions/cache@v3
+        with:
+          path: /usr/local/bin/kustomize
+          key: ${{ runner.os }}-kustomize-v4.6.1
+          restore-keys: |
+            ${{ runner.os }}-kustomize
+
+      # Step 3: Install Kustomize if not cached
+      - name: Install Kustomize
+        run: |
+          if [ ! -f /usr/local/bin/kustomize ]; then
+            curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh" | bash
+            sudo mv ./kustomize /usr/local/bin/
+          fi
+
+      # Step 4: Build and Validate Kustomize Output
+      - name: Build and Validate Kustomize Output
+        run: |
+          kustomize build Test-infra/Staging/test > output.yaml
+          kubectl apply --dry-run=client -f output.yaml
