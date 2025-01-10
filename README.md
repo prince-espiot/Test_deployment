@@ -20,3 +20,6 @@ app2-nginx-argo.yaml
 
 
 helm upgrade --install kube-prometheus-stack prometheus-community/kube-prometheus-stack -f custom-values.yaml --namespace monitoring --create-namespace
+
+kubeseal --controller-name sealed-secrets -o yaml \
+-n kube-system <1-example/repo-secret.yaml > 6-example/sealed-repo-secret.yaml

@@ -18,11 +18,11 @@ spec:
     server: https://kubernetes.default.svc
   syncPolicy:
     automated:
-      prune: true
-      selfHeal: true
-      allowEmpty: false
+      prune: true # delete resources that are not in the git repo
+      selfHeal: true # recreate resources that are not in the git repo
+      allowEmpty: false # do not allow empty repo
     syncOptions:
-      - Validate=true
-      - CreateNamespace=false
-      - PrunePropagationPolicy=foreground
-      - PruneLast=true
+      - Validate=true # validate the resources
+      - CreateNamespace=false # do not create the namespace
+      - PrunePropagationPolicy=foreground # prune the resources in the foreground
+      - PruneLast=true # prune the last resources
