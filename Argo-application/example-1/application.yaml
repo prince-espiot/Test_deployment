@@ -6,13 +6,20 @@ metadata:
   namespace: argocd
   annotations:
     argocd-image-updater.argoproj.io/image-list: okumop/myweb:~v0.1
+<<<<<<< HEAD
     argocd-image-updater.argoproj.io/write-back-method: git
+=======
+>>>>>>> 1e126f4 (argo application update example 1)
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
+<<<<<<< HEAD
     repoURL: ssh://git@github.com/prince-espiot/private_test_deployment.git
+=======
+    repoURL: ssh://git@github.com:prince-espiot/private_test_deployment.git
+>>>>>>> 1e126f4 (argo application update example 1)
     targetRevision: main
     path: environments/staging/myapp
   destination:
