@@ -129,8 +129,16 @@ clusterIssuer:
   email: "admin@example.com"
   server: "https://acme-v02.api.letsencrypt.org/directory"
   privateKeySecretRef: 
-    name: "letsencrypt-prod-private-key"
+    name: "letsencrypt-test-cluster-issuer"
   solvers: 
     http01: 
       ingress: 
-        ingressClassName: "nginx"
+        ingressClassName: "external-nginx"
+
+
+secret:
+  name: myweb-2-secret
+  namespace: myweb-2
+  data:
+    username: bXl1c2VybmFtZQ== # Base64-encoded string for "myusername"
+    password: bXlwYXNzd29yZA== # Base64-encoded string for "mypassword"
